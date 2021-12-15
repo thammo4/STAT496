@@ -1,0 +1,15 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, xpatch, amsthm, outlines}
+\usepackage[utf8]{inputenc}
+
+\theoremstyle{plain}
+
+\makeatletter
+\xpatchcmd{\@thm}{\thm@headpunct{.}}{}{}
+
+
+\begin{document}
+\noindent \textbf{Question 2.3.1} Use the Lebesgue Dominated Convergence Theorem to write $$ \lim\limits_{n \to \infty} \int\limits_{0}^{n} xe^{-x^{2}} dx $$ as a Lebesgue integral of an integrable function without a limit sign. Then, evaluate the integral.
+
+
+\end{document}
