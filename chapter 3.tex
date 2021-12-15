@@ -1,0 +1,252 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, xpatch, amsthm, outlines}
+\usepackage[utf8]{inputenc}
+
+\theoremstyle{plain}
+
+\makeatletter
+\xpatchcmd{\@thm}{\thm@headpunct{.}}{}{}
+
+\newtheorem*{def311*}{Definition 3.1.1}
+\newtheorem*{def313*}{Definition 3.1.3}
+\newtheorem*{def312*}{Definition 3.1.2}
+
+\newtheorem*{lemma311*}{Lemma 3.1.1}
+
+\newtheorem*{theorem311*}{Theorem 3.1.1}
+\newtheorem*{theorem312*}{Theorem 3.1.2}
+\newtheorem*{theorem313*}{Theorem 3.1.3}
+\newtheorem*{theorem314*}{Theorem 3.1.4}
+
+\newtheorem*{lemma312*}{Lemma 3.1.2}
+
+\newtheorem*{definition321*}{Definition 3.2.1}
+\newtheorem*{definition322*}{Definition 3.2.2}
+
+\newtheorem*{theorem321*}{Theorem 3.2.1}
+\newtheorem*{theorem322*}{Theorem 3.2.2}
+\newtheorem*{theorem323*}{Theorem 3.2.3}
+
+\newtheorem*{definition331*}{Definition 3.3.1}
+\newtheorem*{definition332*}{Definition 3.3.2}
+\newtheorem*{theorem331*}{Theorem 3.3.1}
+\newtheorem*{definition333*}{Definition 3.3.3}
+\newtheorem*{theorem332*}{Theorem 3.3.2}
+
+\newtheorem*{theorem341*}{Theorem 3.4.1}
+\newtheorem*{theorem342*}{Theorem 3.4.2}
+\newtheorem*{lemma341*}{Lemma 3.4.1}
+\newtheorem*{theorem343*}{Theorem 3.4.3}
+\newtheorem*{lemma342*}{Lemma 3.4.2}
+\newtheorem*{lemma343*}{Lemma 3.4.3}
+\newcommand{\Lagr}{L}
+\begin{document}
+% \end{document}
+
+$\newline$
+\textbf{Definition: Metric Space} Space equipped with a norm $ || \cdot || $. Functions that are elements of the metric space must satisfy the following properties: \vspace{.35 em} \\
+1. All functions have positive length save for the zero function. \vspace{.25 em} \\
+2. The zero function has zero length. \vspace{.25 em} \\
+3. Triangle Inequality: the length of the sum of two functions is always lesser than or equal to the sum of their individual lengths.
+
+$\newline$
+Equivalently:
+\begin{align*}
+& \text{\rm{1. }} \forall f : || f || \geq 0 \\
+& \text{\rm{2. }} f = 0 \Leftrightarrow || f || = 0 \\
+& \text{\rm{3. }} ||f - g || = || g - f || \\
+& \text{\rm{4. }} || f + g || \leq || f || + || g ||
+\end{align*}
+
+
+
+
+\section*{The Spaces $L^{p}$}
+
+\subsection*{Measurable Functions}
+
+
+
+
+$\newline$
+\textbf{Example 3.1.1 \hspace{.5 em} The Vitali Set $ V $}
+
+\begin{def311*} \text{\rm{\textbf{Measurable Function}}}
+\end{def311*}
+
+%$\newline$
+\begin{theorem311*} \end{theorem311*}
+
+%$\newline$
+\begin{theorem312*} Assume f is measurable, and let $ g $ be a Lebesgue integrable function. If $ |f| \leq g $, then $ f $ is Lebesgue integrable. Furthermore, if $ | f | $ is Lebesgue integrable, then $ f $ is too.
+\end{theorem312*}
+
+\subsection*{Definition of $L^{p}$ Spaces}
+
+%$\newline$
+\begin{theorem313*} On an $L^{p}$ space with $ p \geq 1 $,
+\end{theorem313*}
+
+%$\newline$
+\begin{def312*} \text{\rm{\textbf{$L^{p}$ Function Space}}}
+\end{def312*}
+
+%$\newline$
+\begin{lemma311*} \text{\rm{\textbf{Hölder's Inequality}}} \\
+Assume $ p, q > 1 $ satisfy $ \frac{1}{p} + \frac{1}{q} = 1 $. Then:
+$$ \forall f, g : f \in L^{p} \hspace{.1 em} \land \hspace{.1 em} g \in L^{q} \hspace{.125 em} \implies \hspace{.125 em} f \cdot g \in L^{1} \hspace{.1 em} \land \hspace{.1 em} \int | f \cdot g | \leq || f ||_{p} \cdot || g ||_{q}
+$$
+\end{lemma311*}
+
+
+
+\subsection*{Completeness of $ L^{p} $ Spaces}
+\begin{def313*} \text{\rm{\textbf{Convergence of $ L^{p} $ Functions}}}
+\end{def313*}
+
+\begin{lemma312*} \end{lemma312*}
+
+
+\begin{theorem314*} \text{\rm{\textbf{The Riesz-Fischer Theorem}}}
+\end{theorem314*}
+
+ 
+
+\section*{$L^{2}$ and $\ell^{2} $ Hilbert Space Properties}
+
+\begin{definition321*} \text{\rm{\textbf{Inner Product of}}} $L^{2}\left(\mathbb{R}\right)$ \text{\rm{\textbf{Functions}}}
+\end{definition321*}
+
+
+\begin{theorem321*} \text{\rm{\textbf{The Schwarz Inequality}}}
+\end{theorem321*}
+
+\begin{theorem322*} \text{\rm{\textbf{The Pythagorean Theorem}}}
+\end{theorem322*}
+
+\begin{theorem323*} \text{\rm{\textbf{The Parallelogram Law}}}
+\end{theorem323*}
+
+\begin{definition322*} \text{\rm{\textbf{Inner Product of}}} $L^{2}\left(a,b\right)$ \text{\rm{\textbf{functions}}} \\
+\end{definition322*}
+
+\section*{Hilbert Space Orthonormal Basis}
+
+\textbf{Definition: Hilbert Space} \\
+A normed, linear, inner product space. \\
+Possess properties of Euclidean space which allow for application of calculus.
+
+\subsection*{Vector Space Basis}
+
+\begin{theorem331*} \text{\rm{\textbf{Orthogonal Basis for Hilbert Space}}}
+\end{theorem331*}
+
+\subsection*{Gram-Schmidt Process}
+
+%\begin{definition332*} \text{\rm{\textbf{The Gram-Schmidt Process}}}
+%\end{definition322*}
+
+\begin{definition332*} \text{\rm{\textbf{The Gram\--Schmidt Process}}}
+\end{definition332*}
+
+
+\subsection*{The Projection Theorem}
+
+\begin{theorem331*} \text{\rm{\textbf{Basis Approximation Theorem}}} \\
+\end{theorem331*}
+
+\subsection*{Equivalence of Hilbert Spaces}
+
+\begin{definition333*} \text{\rm{\textbf{Hilbert Space Isomorphism}}}
+\end{definition333*}
+
+\begin{theorem332*}
+\end{theorem332*}
+
+\section*{Application: Quantum Mechanics}
+\subsection*{The Hermite Differential Equation}
+\subsection*{The Hermite Functions Form an Orthogonal Basis for $ L^{2}\left(\mathbb{R}\right) $}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

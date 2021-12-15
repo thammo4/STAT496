@@ -1,0 +1,168 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, xpatch, amsthm, outlines}
+\usepackage[utf8]{inputenc}
+
+\theoremstyle{plain}
+
+\makeatletter
+\xpatchcmd{\@thm}{\thm@headpunct{.}}{}{}
+
+\newtheorem*{one_five_one_def*}{Definition 1.5.1}
+\newtheorem*{one_five_one_theorem*}{Theorem 1.5.1}
+\newtheorem*{one_five_two_def*}{Definition 1.5.2}
+\newtheorem*{one_five_two_theorem*}{Theorem 1.5.2}
+\newtheorem*{one_five_one_cor*}{Corollary 1.5.1}
+\newtheorem*{one_five_three_theorem*}{Theorem 1.5.3}
+
+\begin{document}
+
+
+\section*{The Lebesgue Integral and $ L^{1} $}
+
+
+\subsection*{The Space $L^{0}$}
+
+The Daniell-Riesz approach to Lebesgue Integration begins by seeking to construct a sequence of step functions $ \left\{ \phi_{n} \left(x\right) \right\} $ with the following three properties:
+\begin{align*}
+& \text{1. $ \left\{ \phi_{n} \left(x\right) \right\} $ converges pointwise to $f$ } \\
+& \text{2. $ \left\{ \phi_{n} \left(x\right) \right\} $ is nondecreasing.} \\
+& \text{3. $ \left\{ \int \phi_{n} \left(x\right) \right\} $ converges.}
+\end{align*}
+
+\begin{one_five_one_def*}
+Suppose $ \left\{ \phi_{n} \left( x \right) \right\} $ is a nondecreasing, sequence of step functions that converges pointwise almost everywhere to a function $ f\left(x\right) $. Then
+$$ \int f \equiv \lim\limits_{n \to \infty} \int \phi_{n} $$
+If $ \int f $ is finite, then $f$ is an element of the space $ L^{0}$, i.e. $ f \in L^{0}$.
+\end{one_five_one_def*}
+
+
+\begin{one_five_one_theorem*}
+Suppose $ \left\{ \phi_{n} \right\} $ and $ \left\{ \varphi_{n} \right\}$ are two nondecreasing sequences of step functions, both of which converge to a function $ f $, and both of whose integrals are bounded above. Then
+$$
+\lim\limits_{n \to \infty} \int \phi_{n} = \lim\limits_{n \to \infty} \int \varphi_{n}
+$$
+\end{one_five_one_theorem*}
+
+
+$ \newline $
+
+\subsection*{The Space $L^{1}$}
+
+\begin{one_five_two_def*}
+The space $ L^{1} $ of Lebesgue integrable functions consists of any function $f$, such that for functions $ g \in L^{0} $ and $ h \in \L^{0} $, $f = g-h$. Its integral is given by:
+$$
+\int f = \int g - \int h
+$$
+\end{one_five_two_def*}
+
+\begin{one_five_two_theorem*}
+$L^{1}$ is a linear space of functions. Suppose $ f \in L^{1} $, $ u \in L^{1} $, and $ \alpha, \beta \in \mathbb{R} $. Then:
+\begin{align*}
+& \text{1. $ \left(\alpha f + \beta u\right) \in L^{1}$;} \\
+& \text{2. $ \int \left(\alpha f + \beta u\right) = \alpha \int f + \beta \int u $} 
+%& \text{2. $ \left\{ \phi_{n} \left(x\right) \right\} $ is nondecreasing.} \\
+\end{align*}
+
+
+\end{one_five_two_theorem*}
+
+
+\begin{one_five_one_cor*}
+The Lebesgue integral on $L^{1}$ as defined in Definition 1.5.2 is consistent. That is, suppose $ g, h, v, w \in L^{0} $, and let $ f \in L^{1} $. Suppose again that $ f = g - h $ and $ f = v-w$. Then
+$$
+\int g - \int h = \int v - \int w
+$$
+\end{one_five_one_cor*}
+
+
+
+\begin{one_five_three_theorem*}
+If $ f \in L^{1} $ and $ f \geq 0 $, then $ \int f \geq 0 $.
+\end{one_five_three_theorem*}
+
+
+
+\section*{Theorems from 1.5 Exercises}
+
+\textbf{1.5.31} If $f \in L^{1}$, and a function $s = f$ a.e., then $ s \in L^{1} $, and $ \int f = \int s$. \\
+
+$\newline$
+\textbf{1.5.32} If $\phi\left(x\right)$ is a step function, then:
+\begin{align*}
+& \text{\rm{1. }}\phi\left(x+k\right) \text{\rm{ is a step function,  }} \forall k \in \mathbb{R} \\
+& \text{\rm{2. }}\int_{-\infty}^{\infty} \phi\left(x\right)dx = \int_{-\infty}^{\infty} \phi\left(x+k\right)dx
+\end{align*}
+
+$\newline$
+\textbf{1.5.33} If $f\left(x\right) \in L^{1}$, then:
+$$
+\forall k \in \mathbb{R} : \int_{-\infty}^{\infty} f\left(x\right)dx = \int_{-\infty}^{\infty} f\left(x + k\right)dx
+$$
+
+$\newline$
+\textbf{1.5.34} If $ \phi\left(x\right) $ is a step function, then:
+\begin{align*}
+& \text{\rm{1. }} \phi\left(k \cdot x\right) \text{\rm{ is a step function }}, \forall k \in \mathbb{R}-\left\{0\right\} \\
+& \text{\rm{2. }} \int_{-\infty}^{\infty} \phi \left(x\right)dx = |k| \cdot \int_{-\infty}^{\infty} \phi \left(k \cdot x\right)dx
+\end{align*}
+
+$\newline$
+\textbf{1.5.35} If $f \left(x\right) \in L^{1} $, and $k \in \mathbb{R}-\left\{0\right\}$, then
+$$
+\int_{-\infty}^{\infty} f\left(x\right)dx = |k| \cdot \int_{-\infty}^{\infty} f\left(k \cdot x\right) dx
+$$
+
+$\newline$
+\textbf{1.5.36} If $\phi\left(x\right)$ is a step function, and $\phi\left(x\right) \in L^{0}$, then
+\begin{align*}
+& \text{\rm{1. }} |\phi\left(x\right)| \in L^{0} \\
+& \text{\rm{2. }} |\int_{\mathbb{R}} \phi | \leq \int_{\mathbb{R}} | \phi |
+\end{align*}
+
+$\newline$
+\textbf{1.5.37} Let $f$ be the function defined below. Then, $f \notin L^{0}$ and $f \notin L^{1}$.
+\begin{displaymath}
+f\left(x\right) = \left\{
+	\begin{array}{lr}
+		j; x \in \left(\frac{1}{j+1}, \frac{1}{j}\right] , j \in \mathbb{Z^{+}} \\
+		0; \text{\rm{ else }}
+	\end{array}
+\right.
+\end{displaymath}
+
+$\newline$
+\textbf{1.5.38} Suppose $a,b,c \in \mathbb{R}$, and let $f$ be a function. If $f \in L^{1} \left(a,b\right) $ and $f \in L^{1} \left(b,c\right)$, then
+\begin{align*}
+& \text{\rm{1. }} f \in L^{1}\left(a,c\right) \\
+& \text{\rm{2. }} \int_{a}^{b} f\left(x\right)dx + \int_{b}^{c} f\left(x\right)dx = \int_{a}^{c} f\left(x\right)dx
+\end{align*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
