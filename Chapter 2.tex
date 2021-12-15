@@ -1,0 +1,597 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, xpatch, amsthm, outlines}
+\usepackage[utf8]{inputenc}
+
+\theoremstyle{plain}
+
+\makeatletter
+\xpatchcmd{\@thm}{\thm@headpunct{.}}{}{}
+
+\newtheorem*{two_one_one_defa*}{Definition 2.1.1 (Supremum)}
+\newtheorem*{two_one_one_defb*}{Definition 2.1.1 (Infimum)}
+\newtheorem*{two_one_two_definition*}{Definition 2.1.2}
+\newtheorem*{two_one_three_definition*}{Definition 2.1.3}
+
+\newtheorem*{two_one_one_theorem*}{Theorem 2.1.1}
+\newtheorem*{two_one_two_theorem*}{Theorem 2.1.2}
+
+\newtheorem*{two_one_three_theorem*}{Theorem 2.1.3}
+
+
+\newtheorem*{two_one_four_theorem*}{Theorem 2.1.4}
+\newtheorem*{two_one_five_theorem*}{Theorem 2.1.5}
+\newtheorem*{two_one_six_theorem*}{Theorem 2.1.6}
+\newtheorem*{two_one_seven_theorem*}{Theorem 2.1.7}
+
+
+\newtheorem*{lemma221*}{Lemma 2.2.1}
+\newtheorem*{theorem221*}{Theorem 2.2.1}
+\newtheorem*{corollary221*}{Corollary 2.2.1}
+
+\newtheorem*{theorem222*}{Theorem 2.2.2}
+\newtheorem*{theorem223*}{Theorem 2.2.3}
+\newtheorem*{theorem224*}{Theorem 2.2.4}
+
+
+\newtheorem*{corollary231*}{Corollary 2.3.1}
+\newtheorem*{theorem231*}{Theorem 2.3.1}
+\newtheorem*{theorem232*}{Theorem 2.3.2}
+\newtheorem*{theorem233*}{Theorem 2.3.3}
+
+
+%\newtheorem*[definition241*}{Definition 2.4.1}
+\newtheorem*{definition241*}{Definition 2.4.1}
+\newtheorem*{definition242*}{Definition 2.4.2}
+
+\newtheorem*{theorem241*}{Theorem 2.4.1}
+\newtheorem*{theorem242*}{Theorem 2.4.2}
+\newtheorem*{theorem243*}{Theorem 2.4.3}
+\newtheorem*{theorem244*}{Theorem 2.4.4}
+
+\newtheorem*{def151*}{Definition 1.5.1}
+\newtheorem*{theorem151*}{Theorem 1.5.1}
+\newtheorem*{def152*}{Definition 1.5.2}
+
+\newtheorem*{def111*}{Definition 1.1.1 Countable and Uncountable}
+
+
+
+\begin{document}
+
+\begin{def111*}
+Let $ S \subseteq \mathbb{R} $, $ S \neq \varnothing $ be a set. $ S $ is countable when its elements can be arranged into a (possibly infinite) sequence; that is:
+$$ S = \left\{s_{1}, s_{2}, s_{3}, s_{4}, \ldots \right\} $$
+\begin{itemize}
+\item If $ S $ has a \textbf{finite} number of elements, then $ S $ is finite countable. Its cardinality is the number of elements that it contains.
+\item If $ S $ has an \textbf{infinite} number of elements, then $ S $ is infinite countable. Its cardinality is "countable infinity".
+\end{itemize}
+$ S $ is \textbf{Uncountable} when it is not countable. 
+\end{def111*}
+
+\begin{def151*} $L^{0}$\text{\rm{\textbf{ Function Space}}} \\
+A function $ f $ is an element of $ L^{0} $ when there exists a nondecreasing sequence of step functions $ \left\{\phi_{n}\right\}$ that converges pointwise almost everywhere to $ f $. \\ If $ f \in L^{0} $, we define its integral as:
+$$ \int f := \lim\limits_{n \to \infty} \int \phi_{n} $$
+\end{def151*}
+
+\begin{theorem151*} \text{\rm{\textbf{Consistency of}}} $ \int f $ \\
+Let $ \left\{ \phi \right\} $ and $ \left\{ \varphi \right\} $ be nondecreasing sequence of step functions whose integrals, $ \left\{\int\phi_{n}\right\} $ and $ \left\{\int\varphi_{n}\right\} $ are bounded above. Then:
+$$ \left(\phi_{n} \to f \text{\rm{ a.e.}}\right) \hspace{.1 em} \land \hspace{.1 em} \left(\varphi_{n} \to f \text{\rm{ a.e.}}\right) \implies \lim\limits_{n \to \infty} \int \phi_{n} = \lim_{n \to \infty} \int \varphi_{n} $$
+\end{theorem151*}
+
+\begin{def152*} $ L^{1} $ \text{\rm{\textbf{Function Space}}} \\
+A function $ f $ is an element of $ L^{1} $ if:
+$$ \exists g \in L^{0}, \exists h \in L^{0} : f = g - h $$
+If $ f \in L^{1} $, we define its integral as:
+$$ \int f := \int g - \int h $$
+\end{def152*}
+
+\section*{The Riemann Integral}
+
+\subsection*{The Supremum and Infimum}
+
+\begin{two_one_one_defa*}
+A real value $M$ is an upper bound for a set $S$ of real numbers when $ \forall s \in S : S \leq M $. When a set of real numbers $S$ has an upper bound, then the supremum of $S$ is $ \text{\rm{sup }} S$, and it satisfies the following two properties:
+\begin{align*}
+& 1. \text{\rm{ sup }}S \text{ is an upper bound for } S; \\
+& 2. \text{ if } M \text{ is any other upper bound for } S, \text{ then \rm{sup }} S < M
+\end{align*}
+The supremum is also sometimes referred to as the "Least Upper Bound" for $S$.
+\end{two_one_one_defa*}
+
+
+$\newline$
+\begin{two_one_one_defb*}
+A real value $m$ is a lower bound for a set $S$ when $ \forall s \in S : s \geq m $. When a set of real numbers $S$ has a lower bound, then the infimum of $S$ is $ \text{\rm{inf }} S$, and it satisfies the following two properties:
+\begin{align*}
+& 1. \text{\rm{ inf }}S \text{ is a lower bound for } S; \\
+& 2. \text{ if } m \text{ is any other lower bound for } S, \text{ then \rm{inf }} S > m
+\end{align*}
+The infimum is also sometimes referred to as the "Greatest Lower Bound" for $S$.
+\end{two_one_one_defb*}
+
+
+$\newline$
+\begin{two_one_one_theorem*}
+Let $A \subseteq \mathbb{R}$ and $B \subseteq \mathbb{R}$ be sets. If $A \subseteq B$, then $ \text{\rm{sup }}A \leq \text{\rm{sup }}B$ and $ \text{\rm{inf }}A \geq \text{\rm{inf }}B$.
+\end{two_one_one_theorem*}
+
+%\begin{proof} Suppose $A, B \subseteq \mathbb{R}$ are arbitrary sets, and assume $ A \subseteq B$. We will first show that $ \text{sup }B \geq \text{\rm{ sup }}A$. Then, we'll show that $ \text{\rm{inf }}B \leq \text{\rm{inf }}A$.
+%
+%$\newline$
+%1. $ \text{\rm{sup}_{B}}$ 
+%\end{proof}
+
+
+$\newline$
+\begin{two_one_two_definition*}
+When attempting to form either the Riemann integral of the Lebesgue integral $\int_{a}^{b} f $ for $f \in L^{0}$, utilize this standard construction. \\ \\
+Define a sequence of step functions $\left\{ \phi_{n}\right\}$, where: \\ \\
+1. Each $\phi_{n}$ is piecewise defined over $\left[a,b\right] \subseteq \mathbb{R}$ using $2^{n}$ subintervals of the form:
+$$
+I_{k} = \left[
+a + \frac{\left(b-a\right)\left(k-1\right)}{2^{n}},
+a + \frac{\left(b-a\right)k}{2^{n}}
+\right]
+;
+k \in \left\{1, 2, 3, \ldots, 2^{n}\right\}
+$$
+\\
+2. For $x \in I_{k}$, define the step function's value to be the infimum of $f$ over the $k^{th}$ subinterval:
+$$
+\phi_{n} \left(x\right) \equiv \text{\rm{inf}} \left\{f\left(t\right) : t \in I_{k}\right\}
+$$
+\\
+3. In summary, we obtain:
+$$
+\phi_{n}\left(x\right) \equiv \sum_{k=1}^{2^{n}} m_{k} \cdot \chi_{I_k}\left(x\right);
+\hspace{1.75 em}
+m_{k} = \text{\rm{inf}}\left\{f\left(t\right) : t\in I_{k}\right\}
+$$
+$\newline$
+4. Define the dual sequence of the standard construct, $ \left\{ \psi_{n}\right\} $ to be a sequence of step functions:
+$$
+\psi_{n}\left(x\right) \equiv \sum_{k=1}^{2^{n}} M_{k} \cdot \chi_{I_{k}}\left(x\right);
+\hspace{1.75 em}
+M_{k} = \text{\rm{sup}}\left\{f\left(t\right) : t \in I_{k}\right\}
+$$
+\end{two_one_two_definition*}
+
+
+
+$\newline$
+\begin{two_one_two_theorem*}
+The standard construction produces two sequences, $ \left\{ \phi_{n}\right\} $ and $ \left\{ \psi_{n} \right\} $, such that:
+\begin{align*}
+& \text{\rm{1. }} \left\{ \phi_{n} \right\} \text{\rm{ is non\textbf{dec}reasing}} \\
+& \text{\rm{2. }} \left\{ \psi_{n} \right\} \text{\rm{ is non\textbf{inc}reasing}} \\
+\end{align*}
+\end{two_one_two_theorem*}
+
+
+$\newline$
+\begin{two_one_three_theorem*}
+For $ x \in \mathbb{R} $, let $ \left\{J_{n}\right\}$ be a sequence of bounded intervals containing $x$, with $ J_{1} \supseteq J_{2} \supseteq \ldots $, where $x$ is not an endpoint of any of them, and where $ \lim\limits_{n \to \infty} m\left(J_{n}\right) = 0 $. \\
+For a bounded function $f$, define:
+\begin{align*}
+& g\left(x\right) = \lim\limits_{n \to \infty} \text{\rm{inf}} \left\{f\left(t\right) : t \in J_{n}\right\} \\
+& h\left(x\right) = \lim\limits_{n \to \infty} \text{\rm{sup}} \left\{f\left(t\right) : t \in J_{n}\right\}
+\end{align*}
+Then:
+\begin{align*}
+& \text{\rm{1. The limits exist}} \\
+& \text{\rm{2. Limits are independent of the specific sequence }} \left\{J_{n}\right\}  \\
+& \text{\rm{3. }} g\left(x\right) \leq f\left(x\right) \leq h\left(x\right)
+\end{align*}
+\end{two_one_three_theorem*}
+
+
+
+\subsection*{The Definition of the Riemann Integral}
+
+\begin{two_one_three_definition*}
+Let $f$ be a bounded function defined on $\left[a,b\right]$. Assume that if $ x \notin \left[a,b\right]$, then $ f = 0$.
+\\ \\
+\textbf{Lower Riemann Integral} \hspace{.25 em} $\underline{\int_{a}^{b}} f$ \\
+The lower Riemann integral of $f$ on $\left[a,b\right]$ is the supremum of the set of all integrals of step functions bounded above by $f$:
+$$
+\underline{\int_{a}^{b}} f = \text{\rm{sup}} \left\{ \int \phi : \phi \text{ is a step function, and } \phi \leq f\right\}
+$$
+\\ \\
+\textbf{Upper Riemann Integral} \hspace{.25 em} $ \overline{\int_{a}^{b}} f $ \\
+The upper Riemann integral of $f$ on $\left[a,b\right]$ is the infimum of the set of all integrals of step functions bounded below by $f$:
+$$
+\overline{\int_{a}^{b}} f = \text{\rm{inf}} \left\{ \int \psi : \psi \text{ is a step function, and } f \leq \psi \right\}
+$$
+\\ \\
+\textbf{Riemann Integral} \hspace{.25 em} $ \text{R-}\int_{a}^{b} f\left(x\right) dx $ \\
+For the lower and upper Riemann integrals, we always have that $ \underline{\int_{a}^{b}} f \leq \overline{\int_{a}^{b}} f $ because $ \phi \leq f \leq \psi $. When $ \underline{\int_{a}^{b}} f = \overline{\int_{a}^{b}} f $, then $f$ is Riemann integrable on $\left[a,b\right]$. Moreover, the Riemann integral of $f$ is equal to the common value:
+$$
+\text{R-} \int_{a}^{b} f\left(x\right) dx = \underline{ \int_{a}^{b}} f = \overline{ \int_{a}^{b}} f
+$$
+\\ \\
+\textbf{Non-Riemann Integrable} \\
+A function $f$ is non-Riemann integrable on $\left[a,b\right]$ when its lower Riemann integral does not equal its upper Riemann integral. That is:
+$$
+\underline{ \int_{a}^{b}} f \neq \overline{ \int_{a}^{b}} f
+$$
+\end{two_one_three_definition*}
+
+
+
+%$\newline$
+%\textbf{Question 2.1.2} Find R-$\int_{0}^{5} f \left(x\right) dx$ \vspace{.5 em} \\
+%1. $$ f = 3 \cdot \chi_{\left[0,1\right]} - 2 \cdot \chi_{\left[4,5\right]} $$ \vspace{2 em} \\
+%2.
+%$$
+%f = \sum\limits_{j=1}^{4} \left( \frac{j}{j+1}\right) \cdot \chi_{ \left[ j, j+1\right] }
+%$$ \vspace{3 em} \\
+%3.
+%$$
+%f = \left\{
+%        \begin{array}{ll}
+%            1 & \quad x \in \mathbb{Q} \\
+%            0 & \quad x \notin \mathbb{Q}
+%        \end{array}
+%    \right.
+%$$ \vspace{3 em} \\
+%4.
+%$$
+%f = \left\{
+%        \begin{array}{ll}
+%            1 & \quad x \in \left[-1,4\right] \\
+%            0 & \quad \text{\rm{else}}
+%        \end{array}
+%    \right.
+%$$
+
+
+\subsection*{Darboux's Theorem}
+
+\textbf{Alt: Supremum and Infimum} Let $s \in \mathbb{R}$, $ i \in \mathbb{R}$ and $S \subseteq \mathbb{R}$. \\
+$ s = \text{\rm{sup}} S$ exactly when:
+\begin{align*}
+& \text{1. } s \text{ is an upper bound for } S; \text{and} \\
+& \text{2. given } \epsilon > 0, \text{ there exists a number } x \in S \text{ such that } x > s - \epsilon
+\end{align*}
+$ \hspace{10 em} \forall \epsilon > 0, \exists x \in S : x > \left(s - \epsilon\right) $ \\
+
+$ \newline $
+$ i = \text{\rm{inf}}S$ exactly when:
+\begin{align*}
+& \text{1. }i \text{ is a lower bound for }S; \text{ and } \\
+& \text{2. given } \epsilon > 0, \text{ there exists a number } y \in S \text{ such that } y < i + \epsilon
+\end{align*}
+$ \hspace{10em} \forall \epsilon > 0, \exists y \in S : y < \left( i + \epsilon \right) $
+
+
+$\newline$
+\begin{two_one_four_theorem*}
+A function $f$ is Riemann integrable if and only if there exist step function $\phi$ and $\psi$, such that $ \phi \leq f \leq \psi $, and $ \int \left(\psi - \phi\right) $ is arbitrarily small.
+\end{two_one_four_theorem*}
+
+
+$\newline$
+\begin{two_one_five_theorem*} \text{\rm{\textbf{Darboux's Theorem}}} \\
+Suppose $\left\{\phi_{n}\right\}$ is a nondecreasing sequence of step functions and $ \left\{\psi_{n}\right\} $ is a nonincreasing sequence of step functions. Suppose further that $ \forall n \in \mathbb{Z^{+}} : \phi_{n} \leq f \leq \psi_{n} $, and $ \lim\limits_{n \to \infty} \int_{a}^{b} \left(\psi_{n} - \phi_{n}\right) = 0$. Then:
+\begin{align*}
+& \text{1. The sequences } \int_{a}^{b} \phi_{n} \text{ and } \int_{a}^{b} \psi_{n} \text{ have the same limit} \\
+& \text{2. The function } f \text{ is Riemann integrable} \\
+& \text{3. We may calculate the Riemann integral of f in terms of the integrals of the step-function sequences:}
+\end{align*}
+$$
+\lim\limits_{n \to \infty} \int_{a}^{b} \psi_{n}\left(x\right)dx = \text{R-}\int_{a}^{b} f\left(x\right)dx = \lim\limits_{n \to \infty} \int_{a}^{b} \phi_{n}\left(x\right)dx
+$$
+\end{two_one_five_theorem*}
+
+
+$\newline$
+\begin{two_one_six_theorem*}
+For a bounded function $f$ on an interval $\left[a,b\right]$, the standard construction sequence $ \left\{\phi_{n}\right\} $ and its dual sequence $ \left\{ \psi_{n}\right\} $ satisfy:
+\begin{align*}
+& \lim\limits_{n \to \infty} \int \psi_{n} = \overline{\int_{a}^{b}} f\left(x\right) dx \\
+& \lim\limits_{n \to \infty} \int \phi_{n} = \underline{\int_{a}^{b}} f\left(x\right) dx
+\end{align*}
+\end{two_one_six_theorem*}
+
+\newpage
+
+
+\subsection*{The Riemann-Lebesgue Theorem}
+
+\begin{two_one_seven_theorem*}
+A bounded function $f$ is Riemann integrable over an interval $\left[a,b \right] $ if and only if the points of discontinuity of $f$ on $\left[a,b\right]$ form a set of measure zero. In this case, the Riemann integral equals the Lebesgue integral:
+$$
+\text{R-}\int_{a}^{b} f dx = \int_{a}^{b} f dx
+$$
+\end{two_one_seven_theorem*}
+
+%\begin{proof}
+%Suppose $ f : \left[a,b\right] \to \mathbb{R} $ is an arbitrary, bounded function. We need to prove:
+%\begin{align*}
+%& \left(\Rightarrow\right) \text{\rm{ If }} f \text{\rm{ is discontinuous on a set of points }} \left\{x \in \left[a,b\right] : \text{\rm{ f is discontinuous }} \right\}, \text{\rm{ then }} f \text{\rm{ is Riemann integrable }} \\
+%& \left(\Leftarrow\right) \text{\rm{ If }} f \text{\rm{ is Riemann integrable, then the set of f's discontinuous points forms a set with measure zero}} \\
+%\end{align*}
+%$ \left(\Rightarrow\right) $ Assume the set of discontinuous points of $ f $ on $ \left[a,b\right] $ has measure zero. We seek to show that $ f $ is Riemann integrable. Motivated by this goal, apply the standard construction per Definition 2.1.2.
+%\begin{align*}
+%& I_{k} = \left[
+%a + \frac{\left(b-a\right)\left(k-1\right)}{2^{n}},
+%a + \frac{\left(b-a\right)k}{2^{n}}
+%\right]
+%;
+%k \in \left\{1, 2, 3, \ldots, 2^{n}\right\} \\
+%& \phi_{n}\left(x\right) = \sum\limits_{k=1}^{2^{n}} m_{k} \cdot \chi_{I_{k}}\left(x\right) ; \quad m_{k} = \text{\rm{inf}} \left\{ f\left(t\right) : t \in I_{k} \right\} \\
+%& \psi_{n}\left(x\right) = \sum\limits_{k=1}^{2^{n}} M_{k} \cdot \chi_{I_{k}}\left(x\right) ; \quad M_{k} = \text{\rm{sup}} \left\{ f\left(t\right) : t \in I_{k} \right\}
+%\end{align*}
+%Per the definition of the infimum and supremum as lower and upper bounds of a set, for a fixed $ x \in I_{k} $:
+%$$
+%\text{\rm{inf}}\left\{ f\left(t\right) : t \in I_{k} \right\} \leq \left\{ f\left(t\right) : t \in I_{k} \right\} \leq \text{\rm{sup}}\left\{ f\left(t\right) : t \in I_{k} \right\} \implies \phi_{n}\left(x\right) \leq f\left(x\right) \leq \psi_{n}\left(x\right)
+%$$
+%Per theorem 2.1.2, the standard construction step function sequence and its dual are nondecreasing and non-increasing sequences, respectively.  
+%\end{proof}
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+%
+%\newpage
+%\thispagestyle{empty}
+%\mbox{}
+%\newpage
+
+
+
+
+\section*{Properties of the Lebesgue Integral}
+
+\subsection*{The Monotone Convergence Theorem}
+
+\begin{lemma221*} \text{\rm{\textbf{Nondecreasing Convergence for $L^{0}$ Function Sequence}}} \\
+Suppose $ \left\{ f_{n} \right\} \subseteq L^{0} $ is a nondecreasing sequence of functions such that for any $ n \in \mathbb{Z^{+}} $, there exists a finite upper bound $ M \in \mathbb{R^{+}} $ for which $ \int f_{n} \leq M $. Then:
+\begin{align*}
+& \text{\rm{1. }} \exists f \in L^{0} : \left(f_{n} \to f\right) \text{\rm{ a.e.}} \\
+& \text{\rm{2. }} \int \lim\limits_{n \to \infty} = \int f = \lim\limits_{n \to \infty} \int f_{n}
+\end{align*}
+\end{lemma221*}
+
+$\newline$
+\begin{theorem221*} \text{\rm{\textbf{Beppo Levi Monotone Convergence Theorem}}} \\
+Suppose $ \left\{ f_{n} \right\} \subseteq L^{1} $ is a monotonic sequence of functions. Suppose also that
+$$ \forall n \in \mathbb{Z^{+}}, \exists M \in \mathbb{R^{+}} : | \int f_{n} | \leq M $$
+Then:
+\begin{align*}
+& \text{\rm{1. }} \exists f \in L^{1} : \left(f_{n} \to f \right) \text{\rm{ a.e.}} \\
+& \text{\rm{2. }} \int \lim\limits_{n \to \infty} f_{n} = \int f = \lim\limits_{n \to \infty} \int f_{n}
+\end{align*}
+\end{theorem221*}
+
+$\newline$
+\begin{corollary221*} $ \newline $
+Assume $ f $ is a nonnegative $ L^{1} $ function. If $ \int f = 0 $, then $ f = 0 $ $ \left( \text{\rm{a.e.}} \right) $
+$$
+\forall f \in L^{1} > 0 : \left(f \geq 0 \hspace{.1 em} \land \hspace{.1 em} \int f = 0\right) \implies f = 0 \text{\rm{ (a.e.)}}
+$$
+\end{corollary221*}
+
+
+\subsection*{Additional Integration Theorems}
+
+\begin{theorem222*} \text{\rm{\textbf{$ L^{1} $ Fundamental Theorem of Calculus}}}
+Let $ f \in L^{1}\left[a,b\right] $. Define:
+\begin{equation*}
+F \left(x\right) := \left\{
+	\begin{array}{ll}
+		\int\limits_{a}^{x} f\left(t\right) dt  & ; \quad x \in \left[a,b\right] \vspace{.15 em} \\
+		0 & ; \quad \text{\rm{else}}
+	\end{array}
+\right.
+\end{equation*}
+to be the antiderivative of $ f $ on $ \left[a,b\right]$.
+Then:
+\begin{align*}
+& \text{\rm{1. If }} x \in \left[a,b\right] \text{\rm{ and }} f\left(x\right) \text{\rm{ is continuous, then }} F'\left(x\right) = f\left(x\right)  \\
+& \text{\rm{2. If }} \forall x \in \left[a,b\right] : f \text{\rm{ is continuous, and }} F'\left(x\right) = f\left(x\right), \text{\rm{ then }} \int\limits_{a}^{b} f\left(x\right) dx = F\left(b\right) - F\left(a\right)
+\end{align*}
+\end{theorem222*}
+
+
+
+\newpage
+\begin{theorem223*} \text{\rm{\textbf{Integration by Parts}}} \\
+Suppose $ u, v \in L^{1} \left[a,b\right] $, and $ \forall x \in \left[a,b\right] $:
+\begin{align*}
+& U\left(x\right) = \int\limits_{a}^{x} u\left(t\right) dt + C_{1} & V\left(x\right) = \int\limits_{a}^{x} v\left(t\right) dt + C_{2}
+\end{align*}
+Then:
+\begin{align*}
+& \int\limits_{a}^{b} U \cdot v = U \cdot V\bigg\rvert_{a}^{b} - \int\limits_{a}^{b} V \cdot u
+\end{align*}
+\end{theorem223*}
+
+
+$\newline$
+\begin{theorem224*} If $ f \in L^{1} $, then $ | f | \in L^{1} $, and $ | \int f | \leq \int | f | $.
+$$
+f \in L^{1} \implies \lvert f \rvert \in L^{1} \hspace{.1 em} \land \hspace{.1 em} | \int f | \leq \int |f|
+$$
+\end{theorem224*}
+
+
+\section*{Dominated Convergence \& Additional Properties}
+
+\begin{theorem231*} \text{\rm{\textbf{Lebesgue Dominated Convergence Theorem (LDCT)}}} \\
+Suppose $ \left\{ f_{n} \right\} \subseteq L^{1} $ is a sequence of functions and $ \left( f_{n} \to f \right) $ a.e. Suppose further that each individual sequence function is dominated by an integrable function $ g \in L^{1} $:
+$$
+\forall n \in \mathbb{Z^{+}}, \exists g \in L^{1} : | f_{n} | \leq g
+$$
+Then $ f \in L^{1} $, and:
+$$
+\int f \hspace{.125 em} = \hspace{.125 em} \lim\limits_{n \to \infty} \int f_{n} = \int \lim\limits_{n \to \infty} f_{n}
+$$
+\end{theorem231*}
+
+$\newline$
+\begin{corollary231*} \text{\rm{\textbf{The Bounded Convergence Theorem}}} \\
+Let $ I \subseteq \mathbb{R} $. Suppose $ \left\{ f_{n} \right\} \subseteq L^{1} \left(I \right) $ is a function sequence and $ \forall x \in I : \left(f_{n} \to f\right) $ a.e. Suppose further that each function in the sequence is bounded above:
+$$
+\forall n \in \mathbb{Z^{+}}, \exists M \in \mathbb{R^{+}}, \forall x \in I : | f_{n} \left(x\right) | \leq M
+$$
+Then $ f \in L^{1} \left(x\right) $, and:
+$$
+\int_{I} f = \lim\limits_{n \to \infty} \int_{I} f_{n} = \int_{I} \lim\limits_{n \to \infty} f_{n}
+$$
+\end{corollary231*}
+
+\newpage
+\begin{theorem232*} \text{\rm{\textbf{Fatou's Lemma}}} \\
+Suppose $ \left\{ f_{n} \right\} \subseteq L^{1} $ is a nonnegative function sequence, and $ \left( f_{n} \to f\right) $ a.e.. Suppose further that
+\begin{align*}
+\forall n \in \mathbb{Z^{+}}, \exists M \in \mathbb{R^{+}} : \int f_{n} \leq M
+\end{align*}
+Then:
+\begin{align*}
+f \in L^{1} \text{\rm{; }} \quad \text{\rm{ and }} \quad \int f \leq M
+\end{align*}
+\end{theorem232*}
+
+$\newline$
+\begin{theorem233*}
+Assume $ f \left(x,t\right) $ is a function of $ t \in \mathbb{R} $ and $ x \in \mathbb{R} $. \\
+Assume $ \forall t \in \mathbb{R} : f\left(x,t\right) $ is an integrable function with respect to $ x $. \\
+Assume $ \forall x \in \mathbb{R} : f\left(x,t\right) $ is an integrable function  with respect to $ t $. \\
+Assume $ \forall x, t \in \mathbb{R}, \exists g \in L^{1} : \lvert \frac{\partial f\left(x,t\right)}{\partial t} \rvert \leq g\left(x\right) $. \\
+Then:
+$$ \frac{\partial}{\partial t} \int f\left(x,t\right) dx = \int \frac{\partial f\left(x,t\right)}{\partial t} dx
+$$
+\end{theorem233*}
+
+
+\section*{Application - Fourier Series}
+
+\subsection*{Basic Formulation}
+
+\subsection*{Convergence Issues}
+
+\begin{theorem241*} \text{\rm{\textbf{The Riemann-Lebesgue Lemma}}} \\
+Suppose $ f \in L^{1} $. Then $ \forall n \in \mathbb{R} $. the following integrals exist, and converge to zero:
+\begin{align*}
+& \int\limits_{-\infty}^{\infty} f\left(x\right) \cos nx dx \to 0 & \int\limits_{-\infty}^{\infty} f\left(x\right) \sin nx dx \to 0
+\end{align*}
+\end{theorem241*}
+
+%\begin{definition241*} \end{definition241*}
+$\newline$
+\begin{definition241*} \text{\rm{\textbf{Dirichlet Kernel Function and Fourier Partial Sums}}} \\
+1. Dirichlet Kernel Function:
+$$ D\left(x\right) = \frac{1}{2} + \sum\limits_{k=1}^{n} \cos kx \text{\rm{ ;}} \quad \forall n \in \mathbb{Z^{+}}, \forall x \in \mathbb{R} $$
+2. Fourier Partial Sums:
+$$
+s_{n}\left(x\right) = \frac{a_{0}}{2} + \sum\limits_{k=1}^{n} \left(a_{k} \cos kx + b_{k} \sin kx\right) \text{\rm{ ;}} \quad \forall n \in \mathbb{Z^{+}}, \forall x \in \mathbb{R} 
+$$
+\end{definition241*}
+
+\newpage
+
+\begin{theorem242*} \text{\rm{\textbf{Dirichlet Kernel Properties}}} $ \forall n \in \mathbb{Z^{+}}: $ \\
+1. \hspace{.25 em} $ \int\limits_{0}^{\pi} D_{n}\left(t\right) = \frac{\pi}{2} $ \vspace{.5 em} \\
+2. \hspace{.25 em} $ s_{n}\left(x\right) = \frac{1}{\pi} \int\limits_{-\pi}{\pi} f\left(t\right) \cdot D_{n}\left(t-x\right) dt $\vspace{.5 em} \\
+3. \hspace{.25 em} $ s_{n}\left(x\right) = \frac{1}{\pi}\int\limits_{0}^{\pi} \left(f\left(x+t\right) + f\left(x-t\right)\right) \cdot D_{n}\left(t\right) dt $\vspace{.5 em} \\
+4. $ D_{n}\left(x\right) = \frac{\sin\left( nx + \frac{x}{2}\right)}{2\sin\frac{x}{2}} \quad \forall k \in \mathbb{Z^{+}}, x \neq 2k\pi $ \hspace{.75 em} \vspace{.25 em} \\
+5. $ | \int\limits_{a}^{b} D_{n}\left(t\right) dt| < 2 \quad \forall a,b : 0 \leq a,b \leq \pi $ \hspace{.75 em}
+\end{theorem242*}
+
+$\newline$
+\begin{theorem243*}
+Suppose $ f \in L^{1} \left(-\pi, \pi\right) $ is periodic with period $ 2\pi $. Then, there exists $ h \in \mathbb{R} : 0 < h \leq \pi $ and function $ s $ for which:
+$$
+\lim\limits_{n \to \infty} \int\limits_{0}^{h} \left\{ f\left(x+t\right) + f\left(x-t\right) - 2s\left(x\right) \right\} \cdot D_{n}\left(t\right) dt = 0 \Longleftrightarrow \lim\limits_{n \to \infty} s_{n}\left(x\right) = s\left(x\right)
+$$
+\end{theorem243*}
+$\newline$
+$\lim\limits_{n \to \infty} s_{n}\left(x\right) = s\left(x\right) $ represents the limit of the Fourier series' partial sums.
+
+$\newline$
+\begin{definition242*} $ L^{1} $ \text{\rm{\textbf{Function of Bounded Variation}}} \\
+A function $ f \in L^{1}\left(-\pi, \pi\right) $ able to be expressed as the difference between two nondecreasing functions, $ g - h $.
+\end{definition242*}
+
+$\newline$
+\begin{theorem244*} \text{\rm{\textbf{The Dirichlet-Jordan Theorem}}} \\
+Suppose $ f \in L^{1} \left(-\pi, \pi\right) $ is periodic with period $ 2\pi $. Suppose also that there exists an $ x \in \mathbb{R} $ for which $ f $ has bounded variation on an interval $ \left[x-h, x+h\right] $, where $ 0 < h \leq \pi $. Then, the Fourier series of $ f $ at $ x $ converges to $ \lim\limits_{t \to 0^{+}} \frac{f\left(x+t\right) + f\left(x-t\right)}{2}$
+\end{theorem244*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
