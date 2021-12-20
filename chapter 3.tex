@@ -71,11 +71,22 @@ Equivalently:
 $\newline$
 \textbf{Example 3.1.1 \hspace{.5 em} The Vitali Set $ V $}
 
-\begin{def311*} \text{\rm{\textbf{Measurable Function}}}
+\begin{def311*} \text{\rm{\textbf{Measurable Function}}} \\
+Let $ f : \mathbb{R} \to \mathbb{R} $ and $ g : \mathbb{R} \to \mathbb{R^{+}} $. \\
+Define a function $ \text{\rm{mid}}\left\{-g,f,g\right\} $ to be the unique range value chosen from $ \left\{-g,f,g\right\} $ that is between the other two functions in the triplet. $ f $ is a measurable function when:
+$$ \forall g \in L^{1} \left[0, \infty\right) : \text{\rm{mid}}\left\{-g, f, g\right\} $$
 \end{def311*}
 
 %$\newline$
-\begin{theorem311*} \end{theorem311*}
+\begin{theorem311*} \textbf{Properties of Real, Measurable Functions} \\
+Let $ f : \mathbb{R} \to \mathbb{R} $. Then:
+\begin{align*}
+& \text{\rm{1. }} f \text{\rm{ integrable }} \hspace{.52 em} \implies f \text{\rm{ measurable }} \\
+& \text{\rm{2. }} f \text{\rm{ continuous }} \hspace{.18 em} \implies f \text{\rm{ measurable }} \\
+& \text{\rm{3. }} f \text{\rm{ measruable }} \implies |f| \text{\rm{ measurable }} \\
+& \text{\rm{4. }} f \text{\rm{ measurable }} \implies \forall p \in \mathbb{Z^{+}} : |f|^{p} \text{\rm{ measurable }}
+\end{align*}
+\end{theorem311*}
 
 %$\newline$
 \begin{theorem312*} Assume f is measurable, and let $ g $ be a Lebesgue integrable function. If $ |f| \leq g $, then $ f $ is Lebesgue integrable. Furthermore, if $ | f | $ is Lebesgue integrable, then $ f $ is too.
@@ -84,12 +95,27 @@ $\newline$
 \subsection*{Definition of $L^{p}$ Spaces}
 
 %$\newline$
-\begin{theorem313*} On an $L^{p}$ space with $ p \geq 1 $,
-\end{theorem313*}
 
 %$\newline$
-\begin{def312*} \text{\rm{\textbf{$L^{p}$ Function Space}}}
+\begin{def312*} \text{\rm{\textbf{$L^{p}$ Function Space}}} \\
+Let $ p \in \mathbb{R^{+}} : p \geq 1 $. The $ L^{p} $ function space consists of all measurable functions $ f $ having a finite $ L^{p} $ norm. Symbolically:
+$$
+L^{p} = \left\{ f: f \text{\rm{ measurable }} \hspace{.1 em} \land \hspace{.30 em}  || f ||_{p} < \infty \right\} ; \quad || f ||_{p} = \left(\int |f|^{p}\right)^{\frac{1}{p}}
+$$
+Two $ L^{p} $ functions equal a.e. represent the same function with respect to the $ L^{p} $ space.
 \end{def312*}
+
+$\newline$
+\textbf{Definition: $L^{p}$ Distance Between Two Functions} \\
+The $ L^{p} $ distance between two function space elements is:
+$$
+|| f - g||_{p} = \left( \int | f-g |^{p} \right)^{\frac{1}{p}}
+$$
+
+$ \newline $
+\textbf{Definition: $L^{p} \left(a,b\right)$ Norm} \\
+Let $ \left(a,b\right) \subseteq \mathbb{R} $. The $ L^{p}\left(a,b\right) $ norm is:
+$$ ||f||_{p} = \left( \int\limits_{a}^{b} |f|^{p} \right)^{\frac{1}{p}} $$
 
 %$\newline$
 \begin{lemma311*} \text{\rm{\textbf{Hölder's Inequality}}} \\
@@ -98,36 +124,78 @@ $$ \forall f, g : f \in L^{p} \hspace{.1 em} \land \hspace{.1 em} g \in L^{q} \h
 $$
 \end{lemma311*}
 
+\begin{theorem313*} \text{\rm{\textbf{To Define an}}} $L^{p}$ \text{\rm{\textbf{Norm}}} \\
+On an $ L^{p} $ space with $ p \geq 1 $, we can define a norm with:
+$$ || f ||_{p} = \left( \int | f |^{p}\right)^{\frac{1}{p}} $$
+\end{theorem313*}
 
-
-\subsection*{Completeness of $ L^{p} $ Spaces}
-\begin{def313*} \text{\rm{\textbf{Convergence of $ L^{p} $ Functions}}}
+%\subsection*{Completeness of $ L^{p} $ Spaces}
+\subsection*{The $L^{p}$ Spaces Are Complete}
+\begin{def313*} \text{\rm{\textbf{Convergence of $ L^{p} $ Functions to Norm Limit}}} \\
+A sequence of $ L^{p} $ functions $ \left\{f_{n}\right\}_{n=1}^{\infty} $ converges to a limit function $ f \in L^{p} $ when:
+$$
+\forall \epsilon \in \mathbb{R^{+}}, \exists N \in \mathbb{Z^{+}}, \forall n \in \mathbb{Z^{+}} : n > N \implies || f_{n} - f ||_{p}
+$$
+Then we say that $ f = \lim\limits_{n \to \infty} f_{n} $.
 \end{def313*}
 
-\begin{lemma312*} \end{lemma312*}
+\begin{lemma312*}
+Suppose $ \forall k \in \mathbb{Z^{+}} : f_{k} \in L^{p} $. If the real valued series $ \sum || f_{k} || $ converges, then:
+\begin{itemize}
+\item $ \exists g \in L^{p} : \sum f_{k} \to g $
+\item $ \forall x \in \mathbb{R} : \left(\sum f_{k} \to g\right)_{\text{a.e.}} $ pointwise.
+\end{itemize}
+\end{lemma312*}
 
 
-\begin{theorem314*} \text{\rm{\textbf{The Riesz-Fischer Theorem}}}
+
+
+\begin{theorem314*} \text{\rm{\textbf{The Riesz-Fischer Theorem}}} \\
+Let $ \left\{f_{n}\right\} $ be a Cuahcy sequence of functions in an $ L^{p}$ space with $ p \geq 1 $, i.e.
+$$ \forall \epsilon \in \mathbb{R^{+}}, \exists N \in \mathbb{Z^{+}} : \forall m \in \mathbb{Z^{+}}, m \geq N \land n \geq N \implies ||f_{n} - f_{m}||_{p} $$
+Then $ \exists f \in L^{p} : f_{n} \to f $ with respect to the $L^{p}$-norm limit.
 \end{theorem314*}
 
  
 
 \section*{$L^{2}$ and $\ell^{2} $ Hilbert Space Properties}
 
-\begin{definition321*} \text{\rm{\textbf{Inner Product of}}} $L^{2}\left(\mathbb{R}\right)$ \text{\rm{\textbf{Functions}}}
+\begin{definition321*} \text{\rm{\textbf{Inner Product of}}} $L^{2}\left(\mathbb{R}\right)$ \text{\rm{\textbf{Functions}}} \\
+The inner product of $ f \in L^{2}\left(\mathbb{R}\right) $ and $ g \in L^{2}\left(\mathbb{R}\right) $ is:
+$$ \langle f,g \rangle = \int\limits_{-\infty}^{\infty} f\left(x\right) g\left(x\right) dx $$
 \end{definition321*}
 
+$\newline$
+\textbf{Fundamental Properties of $ L^{2} $ Inner Product} \\
+Let $ f, g, h \in L^{2} $. Let $ a, b \in \mathbb{R} $. Then:
+\begin{align*}
+& \text{\rm{1. }} \langle f, f \rangle = ||f||^{2} \\
+& \text{\rm{2. }} \langle f, f \rangle \geq 0 \\
+& \text{\rm{3. }} \langle f, g \rangle = \langle g, f \rangle \\
+& \text{\rm{4. }} \langle af+bg, h \rangle = a\langle f, h \rangle + b \langle g, h \rangle \\
+& \text{\rm{5. }} \langle f, f \rangle = 0 \Leftrightarrow f = 0 \\
+\end{align*}
 
-\begin{theorem321*} \text{\rm{\textbf{The Schwarz Inequality}}}
+
+\begin{theorem321*} \text{\rm{\textbf{The Schwarz Inequality}}} \\
+$$ \forall f, g \in L^{2} : | \langle f, g \rangle | \leq || f || \cdot || g || $$
 \end{theorem321*}
+\noindent The Schwarz Inequality implies that: $$ \cos \theta = \frac{ \langle f,g \rangle}{ ||f|| ||g|| } $$
+\noindent $ f \in L^{2} $ and $ g \in L^{2} $ are perpendicular when: $$ \langle f, g \rangle = 0 $$
 
-\begin{theorem322*} \text{\rm{\textbf{The Pythagorean Theorem}}}
+\begin{theorem322*} \text{\rm{\textbf{The Pythagorean Theorem}}} \\
+$$ \forall f \in L^{2}, \forall g \in L^{2} : \langle f, g \rangle \implies || f ||^{2} + || g ||^{2} = || f + g ||^{2} $$
 \end{theorem322*}
 
-\begin{theorem323*} \text{\rm{\textbf{The Parallelogram Law}}}
+\begin{theorem323*} \text{\rm{\textbf{The Parallelogram Law}}} \\
+$$ \forall f \in L^{2}, \forall g \in L^{2} : || f + g ||^{2} + || f - g ||^{2} = 2 || f ||^{2} + 2 || g ||^{2} $$
+
 \end{theorem323*}
 
 \begin{definition322*} \text{\rm{\textbf{Inner Product of}}} $L^{2}\left(a,b\right)$ \text{\rm{\textbf{functions}}} \\
+$$ \forall f \in L^{2}\left(a,b\right), \forall g \in L^{2}\left(a,b\right) : \langle f, g \rangle = \int\limits_{a}^{b} f\left(x\right) g\left(x\right) dx $$
+The angle between $ f $ and $ g $ satisfies:
+$$ || f || \cdot || g || \cdot \cos \theta = \langle f, g \rangle $$ 
 \end{definition322*}
 
 \section*{Hilbert Space Orthonormal Basis}
